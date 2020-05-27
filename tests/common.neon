@@ -1,0 +1,104 @@
+#
+# Node lib DI configuration
+#
+# @license		More in license.md
+# @copyright	https://www.fastybird.com
+# @author		Adam Kadlec <adam.kadlec@fastybird.com>
+# @package		FastyBird:NodeDatabase!
+# @subpackage	config
+# @since		0.1.0
+#
+# @date			25.05.20
+
+#########################
+# Used Nette extensions #
+#########################
+
+extensions:
+	contributteTranslation		: Contributte\Translation\DI\TranslationExtension
+	ipubDoctrineConsistence		: IPub\DoctrineConsistence\DI\DoctrineConsistenceExtension
+	ipubDoctrineCrud			: IPub\DoctrineCrud\DI\DoctrineCrudExtension
+	nettrineAnnotations			: Nettrine\Annotations\DI\AnnotationsExtension
+	nettrineCache				: Nettrine\Cache\DI\CacheExtension
+	nettrineDbal				: Nettrine\DBAL\DI\DbalExtension
+	nettrineOrm					: Nettrine\ORM\DI\OrmExtension
+	nettrineOrmAnnotations		: Nettrine\ORM\DI\OrmAnnotationsExtension
+	nettrineOrmConsole			: Nettrine\ORM\DI\OrmConsoleExtension
+	nettrineOrmCache			: Nettrine\ORM\DI\OrmCacheExtension
+	nodeWebServer				: FastyBird\NodeWebServer\DI\NodeWebServerExtension
+
+##################################
+# Nette extensions configuration #
+##################################
+
+# Node translations
+###################
+contributteTranslation:
+	locales:
+		default: en_US
+		fallback: [en_US, en]
+	localeResolvers: []
+	dirs:
+		- %appDir%/src/Translations
+
+# Doctrine DBAL
+###############
+nettrineDbal:
+	connection:
+		serverVersion: %database.version%
+		host: %database.host%
+		port: %database.port%
+		driver: %database.driver%
+		memory: %database.memory%
+		dbname: %database.dbname%
+		user: %database.username%
+		password: %database.password%
+		charset: utf8
+
+		types:
+			uuid_binary:
+				class: Ramsey\Uuid\Doctrine\UuidBinaryType
+				commented: false
+			utcdatetime:
+				class: IPub\DoctrineTimestampable\Types\UTCDateTime
+				commented: false
+
+		typesMapping:
+			uuid_binary: binary
+
+# Doctrine ORM annoations
+#########################
+nettrineAnnotations:
+	debug: %debugMode%
+	ignore:
+		- writable
+		- validator
+		- required
+		- module
+		- author
+		- subpackage
+		- package
+
+# Doctrine ORM
+##############
+nettrineOrm:
+	configuration:
+		proxyDir	: %tempDir%/cache/doctrine.proxies
+
+nettrineOrmAnnotations:
+	namespaces: []
+	paths:
+		- %appDir%/src/Entities
+
+# Default configuration
+##############
+parameters:
+	database:
+		version: 5.7
+		host: 127.0.0.1
+		port: 3306
+		driver: pdo_mysql
+		memory: false
+		dbname: devices_node
+		username: root
+		password:
