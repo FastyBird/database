@@ -1,7 +1,7 @@
 {
   "name" : "fastybird/node-database",
   "type" : "library",
-  "description" : "FastyBird node database support",
+  "description" : "FastyBird microservice node database utils with {JSON:API} data hydration",
   "keywords" : [
     "fastybird",
     "fb",
