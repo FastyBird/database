@@ -89,10 +89,10 @@ class NodeDatabaseExtension extends DI\CompilerExtension implements Translation\
 			$serverCommandService = $builder->getDefinition($serverCommandServiceName);
 
 			$serverCommandService
-				->addSetup('?->$onServerStart[] = ?', [$serverCommandService, '@' . $this->prefix('event.serverStart')])
-				->addSetup('?->$onRequest[] = ?', [$serverCommandService, '@' . $this->prefix('event.request')])
-				->addSetup('?->$onResponse[] = ?', [$serverCommandService, '@' . $this->prefix('event.response')])
-				->addSetup('?->$onAfterConsumeMessage[] = ?', [$serverCommandService, '@' . $this->prefix('event.afterConsume')]);
+				->addSetup('$onServerStart[]', ['@' . $this->prefix('event.serverStart')])
+				->addSetup('$onRequest[]', ['@' . $this->prefix('event.request')])
+				->addSetup('$onResponse[]', ['@' . $this->prefix('event.response')])
+				->addSetup('$onAfterConsumeMessage[]', ['@' . $this->prefix('event.afterConsume')]);
 		}
 	}
 
