@@ -2,9 +2,9 @@
 
 namespace Tests\Cases;
 
-use FastyBird\NodeLibs\Boot;
 use FastyBird\NodeDatabase\DI;
 use FastyBird\NodeDatabase\Middleware;
+use FastyBird\NodeLibs\Boot;
 use Ninjify\Nunjuck\TestCase\BaseTestCase;
 use Tester\Assert;
 
