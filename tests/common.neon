@@ -15,7 +15,6 @@
 #########################
 
 extensions:
-	contributteTranslation		: Contributte\Translation\DI\TranslationExtension
 	ipubDoctrineConsistence		: IPub\DoctrineConsistence\DI\DoctrineConsistenceExtension
 	ipubDoctrineCrud			: IPub\DoctrineCrud\DI\DoctrineCrudExtension
 	nettrineAnnotations			: Nettrine\Annotations\DI\AnnotationsExtension
@@ -30,16 +29,6 @@ extensions:
 ##################################
 # Nette extensions configuration #
 ##################################
-
-# Node translations
-###################
-contributteTranslation:
-	locales:
-		default: en_US
-		fallback: [en_US, en]
-	localeResolvers: []
-	dirs:
-		- %appDir%/src/Translations
 
 # Doctrine DBAL
 ###############
@@ -58,9 +47,6 @@ nettrineDbal:
 		types:
 			uuid_binary:
 				class: Ramsey\Uuid\Doctrine\UuidBinaryType
-				commented: false
-			utcdatetime:
-				class: IPub\DoctrineTimestampable\Types\UTCDateTime
 				commented: false
 
 		typesMapping:

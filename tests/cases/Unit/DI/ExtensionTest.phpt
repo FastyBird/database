@@ -3,6 +3,7 @@
 namespace Tests\Cases;
 
 use FastyBird\NodeDatabase\DI;
+use FastyBird\NodeDatabase\Events;
 use FastyBird\NodeDatabase\Middleware;
 use FastyBird\NodeLibs\Boot;
 use Ninjify\Nunjuck\TestCase\BaseTestCase;
@@ -31,6 +32,11 @@ final class ExtensionTest extends BaseTestCase
 
 		Assert::notNull($container->getByType(Middleware\JsonApiMiddleware::class));
 		Assert::notNull($container->getByType(Middleware\DbErrorMiddleware::class));
+
+		Assert::notNull($container->getByType(Events\AfterConsumeHandler::class));
+		Assert::notNull($container->getByType(Events\RequestHandler::class));
+		Assert::notNull($container->getByType(Events\ResponseHandler::class));
+		Assert::notNull($container->getByType(Events\ServerStartHandler::class));
 	}
 
 }

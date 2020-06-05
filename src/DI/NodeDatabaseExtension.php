@@ -15,7 +15,6 @@
 
 namespace FastyBird\NodeDatabase\DI;
 
-use Contributte\Translation;
 use FastyBird\NodeDatabase\Events;
 use FastyBird\NodeDatabase\Middleware;
 use FastyBird\NodeWebServer\Commands as NodeWebServerCommands;
@@ -30,7 +29,7 @@ use Nette\DI;
  *
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  */
-class NodeDatabaseExtension extends DI\CompilerExtension implements Translation\DI\TranslationProviderInterface
+class NodeDatabaseExtension extends DI\CompilerExtension
 {
 
 	/**
@@ -94,16 +93,6 @@ class NodeDatabaseExtension extends DI\CompilerExtension implements Translation\
 				->addSetup('$onResponse[]', ['@' . $this->prefix('event.response')])
 				->addSetup('$onAfterConsumeMessage[]', ['@' . $this->prefix('event.afterConsume')]);
 		}
-	}
-
-	/**
-	 * @return string[]
-	 */
-	public function getTranslationResources(): array
-	{
-		return [
-			__DIR__ . DS . '..' . DS . 'Translations',
-		];
 	}
 
 	/**
