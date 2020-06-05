@@ -22,7 +22,7 @@ $ composer require fastybird/node-database
 
 ## Documentation
 
-Learn how to use database services & data hydrators in [documentation](https://github.com/FastyBird/node-database/blob/master/docs/en/index.md).
+Learn how to use database services in [documentation](https://github.com/FastyBird/node-database/blob/master/docs/en/index.md).
 
 ***
 Homepage [http://www.fastybird.com](http://www.fastybird.com) and repository [https://github.com/FastyBird/node-database](https://github.com/FastyBird/node-database).
