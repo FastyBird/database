@@ -26,7 +26,7 @@ use Ramsey\Uuid;
  *
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  */
-interface IEntity extends DoctrineCrud\Entities\IEntity
+interface IEntity extends DoctrineCrud\Entities\IIdentifiedEntity
 {
 
 	/**

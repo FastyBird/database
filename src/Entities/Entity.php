@@ -41,6 +41,14 @@ abstract class Entity implements IEntity
 	/**
 	 * {@inheritDoc}
 	 */
+	public function getRawId(): Uuid\UuidInterface
+	{
+		return $this->getId();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public function getPlainId(): string
 	{
 		return $this->id->toString();
