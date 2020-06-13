@@ -40,7 +40,7 @@
     "fastybird/node-web-server" : "^0.4 || ^0.3",
     "ipub/doctrine-consistence" : "^0.3",
     "ipub/doctrine-crud" : "^2.3",
-    "ipub/doctrine-orm-query" : "^0.0.5",
+    "ipub/doctrine-orm-query" : "^0.0.6",
     "nette/bootstrap" : "^3.0",
     "nette/di" : "^3.0",
     "nette/utils" : "^3.0",
