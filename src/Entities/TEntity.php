@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 /**
- * Entity.php
+ * TEntity.php
  *
  * @license        More in license.md
  * @copyright      https://www.fastybird.com
@@ -18,7 +18,7 @@ namespace FastyBird\NodeDatabase\Entities;
 use Ramsey\Uuid;
 
 /**
- * Node base entity
+ * Entity base trait
  *
  * @package        FastyBird:NodeDatabase!
  * @subpackage     Entities
@@ -27,7 +27,7 @@ use Ramsey\Uuid;
  *
  * @property-read Uuid\UuidInterface $id
  */
-abstract class Entity implements IEntity
+trait TEntity
 {
 
 	/**

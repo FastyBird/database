@@ -38,15 +38,13 @@
     "doctrine/orm" : "2.7.2",
     "fastybird/node-libs" : "^0.5 || ^0.6",
     "fastybird/node-web-server" : "^0.3 || ^0.4 || ^0.5",
-    "ipub/doctrine-consistence" : "^0.3",
     "ipub/doctrine-crud" : "^2.3",
     "ipub/doctrine-orm-query" : "^0.0.6",
-    "nette/bootstrap" : "^3.0",
     "nette/di" : "^3.0",
     "nette/utils" : "^3.0",
     "nettrine/cache" : "^0.1",
     "nettrine/orm" : "^0.6",
-    "ramsey/uuid" : "^3.9",
+    "ramsey/uuid" : "^3.5 || ^4.0",
     "ramsey/uuid-doctrine" : "^1.6"
   },
 
