@@ -47,14 +47,6 @@ class NodeDatabaseExtension extends DI\CompilerExtension
 				],
 			]);
 
-		$builder->addDefinition(null)
-			->setType(Middleware\DbErrorMiddleware::class)
-			->setTags([
-				'middleware' => [
-					'priority' => 50,
-				],
-			]);
-
 		$builder->addDefinition($this->prefix('event.serverStart'))
 			->setType(Events\ServerStartHandler::class);
 
@@ -90,8 +82,7 @@ class NodeDatabaseExtension extends DI\CompilerExtension
 			$serverCommandService
 				->addSetup('$onServerStart[]', ['@' . $this->prefix('event.serverStart')])
 				->addSetup('$onRequest[]', ['@' . $this->prefix('event.request')])
-				->addSetup('$onResponse[]', ['@' . $this->prefix('event.response')])
-				->addSetup('$onAfterConsumeMessage[]', ['@' . $this->prefix('event.afterConsume')]);
+				->addSetup('$onResponse[]', ['@' . $this->prefix('event.response')]);
 		}
 	}
 
@@ -105,7 +96,10 @@ class NodeDatabaseExtension extends DI\CompilerExtension
 		Nette\Configurator $config,
 		string $extensionName = 'nodeDatabase'
 	): void {
-		$config->onCompile[] = function (Nette\Configurator $config, DI\Compiler $compiler) use ($extensionName): void {
+		$config->onCompile[] = function (
+			Nette\Configurator $config,
+			DI\Compiler $compiler
+		) use ($extensionName): void {
 			$compiler->addExtension($extensionName, new NodeDatabaseExtension());
 		};
 	}

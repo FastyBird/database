@@ -15,11 +15,10 @@
 
 namespace FastyBird\NodeDatabase\Events;
 
-use Doctrine\DBAL;
 use Doctrine\ORM;
 use Doctrine\Persistence;
-use FastyBird\NodeLibs\Exceptions as NodeLibsExceptions;
 use Nette;
+use Throwable;
 
 /**
  * After http request processed handler
@@ -46,34 +45,29 @@ class RequestHandler
 	/**
 	 * @return void
 	 *
-	 * @throws NodeLibsExceptions\TerminateException
+	 * @throws Throwable
 	 */
 	public function __invoke(): void
 	{
-		try {
-			$em = $this->managerRegistry->getManager();
+		$em = $this->managerRegistry->getManager();
 
-			if ($em instanceof ORM\EntityManagerInterface) {
-				if (!$em->isOpen() && method_exists($em, 'create')) {
-					$em = $em->create(
-						$em->getConnection(),
-						$em->getConfiguration()
-					);
-				}
-
-				$connection = $em->getConnection();
-
-				if (!$connection->ping()) {
-					$connection->close();
-					$connection->connect();
-				}
-
-				// Make sure we don't work with outdated entities
-				$em->clear();
+		if ($em instanceof ORM\EntityManagerInterface) {
+			if (!$em->isOpen() && method_exists($em, 'create')) {
+				$em = $em->create(
+					$em->getConnection(),
+					$em->getConfiguration()
+				);
 			}
 
-		} catch (DBAL\DBALException $ex) {
-			throw new NodeLibsExceptions\TerminateException('Database error: ' . $ex->getMessage(), $ex->getCode(), $ex);
+			$connection = $em->getConnection();
+
+			if (!$connection->ping()) {
+				$connection->close();
+				$connection->connect();
+			}
+
+			// Make sure we don't work with outdated entities
+			$em->clear();
 		}
 	}
 

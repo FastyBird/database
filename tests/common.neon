@@ -21,7 +21,7 @@ extensions:
 	nettrineOrm					: Nettrine\ORM\DI\OrmExtension
 	nettrineOrmAnnotations		: Nettrine\ORM\DI\OrmAnnotationsExtension
 	nettrineOrmConsole			: Nettrine\ORM\DI\OrmConsoleExtension
-	nettrineOrmCache			: Nettrine\ORM\DI\OrmCacheExtension
+	fbNodeWebServer				: FastyBird\NodeWebServer\DI\NodeWebServerExtension
 
 contributteConsole:
 	name: FastyBird:Libraries!

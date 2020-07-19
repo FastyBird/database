@@ -39,7 +39,9 @@ trait TEntityParams
 	protected $params = [];
 
 	/**
-	 * {@inheritDoc}
+	 * @param mixed[] $params
+	 *
+	 * @return void
 	 */
 	public function setParams(array $params): void
 	{
@@ -47,7 +49,7 @@ trait TEntityParams
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @return Utils\ArrayHash
 	 */
 	public function getParams(): Utils\ArrayHash
 	{
@@ -55,7 +57,10 @@ trait TEntityParams
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param string $key
+	 * @param mixed|null $value
+	 *
+	 * @return void
 	 */
 	public function setParam(string $key, $value = null): void
 	{
@@ -91,7 +96,10 @@ trait TEntityParams
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param string $key
+	 * @param mixed|null $default
+	 *
+	 * @return mixed|null
 	 */
 	public function getParam(string $key, $default = null)
 	{

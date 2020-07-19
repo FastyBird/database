@@ -42,15 +42,15 @@ interface IEntityParams
 
 	/**
 	 * @param string $key
-	 * @param mixed $value
+	 * @param mixed|null $value
 	 *
 	 * @return void
 	 */
-	public function setParam(string $key, $value = ''): void;
+	public function setParam(string $key, $value = null): void;
 
 	/**
 	 * @param string $key
-	 * @param mixed $default
+	 * @param mixed|null $default
 	 *
 	 * @return mixed|null
 	 */

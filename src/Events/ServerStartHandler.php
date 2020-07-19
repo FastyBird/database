@@ -15,11 +15,10 @@
 
 namespace FastyBird\NodeDatabase\Events;
 
-use Doctrine\DBAL;
 use Doctrine\ORM;
 use Doctrine\Persistence;
-use FastyBird\NodeLibs\Exceptions as NodeLibsExceptions;
 use Nette;
+use Throwable;
 
 /**
  * Http server start handler
@@ -46,19 +45,14 @@ class ServerStartHandler
 	/**
 	 * @return void
 	 *
-	 * @throws NodeLibsExceptions\TerminateException
+	 * @throws Throwable
 	 */
 	public function __invoke(): void
 	{
-		try {
-			$em = $this->managerRegistry->getManager();
+		$em = $this->managerRegistry->getManager();
 
-			if ($em instanceof ORM\EntityManagerInterface) {
-				$em->getConnection()->ping();
-			}
-
-		} catch (DBAL\DBALException $ex) {
-			throw new NodeLibsExceptions\TerminateException('Database error: ' . $ex->getMessage(), $ex->getCode(), $ex);
+		if ($em instanceof ORM\EntityManagerInterface) {
+			$em->getConnection()->ping();
 		}
 	}
 

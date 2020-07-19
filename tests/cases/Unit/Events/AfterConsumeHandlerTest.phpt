@@ -11,6 +11,9 @@ use Tester\Assert;
 
 require_once __DIR__ . '/../../../bootstrap.php';
 
+/**
+ * @testCase
+ */
 final class AfterConsumeHandlerTest extends BaseMockeryTestCase
 {
 

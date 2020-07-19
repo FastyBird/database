@@ -1,4 +1,4 @@
-# FastyBird database helpers library
+# FastyBird node database helpers library
 
 [![Build Status](https://img.shields.io/travis/FastyBird/node-database.svg?style=flat-square)](https://travis-ci.org/FastyBird/node-database)
 [![Code coverage](https://img.shields.io/coveralls/FastyBird/node-database.svg?style=flat-square)](https://coveralls.io/r/FastyBird/node-database)
@@ -8,9 +8,9 @@
 [![Latest stable](https://img.shields.io/packagist/v/FastyBird/node-database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/node-database)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
-## What is FastyBird node database library?
+## What is FastyBird node database helpers library?
 
-This is a [Nette framework](https://nette.org) extension with useful helpers and services for [FastyBird](https://www.fastybird.com) IoT microservices
+This is a [Nette framework](https://nette.org) extension which is implementing basic [Doctrine](https://www.doctrine-project.org/) helpers for [FastyBird](https://www.fastybird.com) IoT microservices
 
 ## Installation
 

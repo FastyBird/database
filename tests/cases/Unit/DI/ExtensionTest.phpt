@@ -11,6 +11,9 @@ use Tester\Assert;
 
 require_once __DIR__ . '/../../../bootstrap.php';
 
+/**
+ * @testCase
+ */
 final class ExtensionTest extends BaseTestCase
 {
 
@@ -19,7 +22,6 @@ final class ExtensionTest extends BaseTestCase
 		$container = $this->createContainer();
 
 		Assert::notNull($container->getByType(Middleware\JsonApiMiddleware::class));
-		Assert::notNull($container->getByType(Middleware\DbErrorMiddleware::class));
 
 		Assert::notNull($container->getByType(Events\AfterConsumeHandler::class));
 		Assert::notNull($container->getByType(Events\RequestHandler::class));
