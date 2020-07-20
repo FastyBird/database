@@ -22,7 +22,7 @@ use Nette;
 use Nette\DI;
 
 /**
- * Microservice node helpers extension container
+ * Database utils extension container
  *
  * @package        FastyBird:NodeDatabase!
  * @subpackage     DI
