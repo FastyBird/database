@@ -4,7 +4,7 @@
  * NodeDatabaseExtension.php
  *
  * @license        More in license.md
- * @copyright      https://www.fastybird.com
+ * @copyright      https://fastybird.com
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  * @package        FastyBird:NodeDatabase!
  * @subpackage     DI
@@ -40,7 +40,7 @@ class NodeDatabaseExtension extends DI\CompilerExtension
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition(null)
-			->setType(Middleware\JsonApiMiddleware::class)
+			->setType(Middleware\PagingMiddleware::class)
 			->setTags([
 				'middleware' => [
 					'priority' => 10,

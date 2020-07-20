@@ -21,7 +21,7 @@ final class ExtensionTest extends BaseTestCase
 	{
 		$container = $this->createContainer();
 
-		Assert::notNull($container->getByType(Middleware\JsonApiMiddleware::class));
+		Assert::notNull($container->getByType(Middleware\PagingMiddleware::class));
 
 		Assert::notNull($container->getByType(Events\AfterConsumeHandler::class));
 		Assert::notNull($container->getByType(Events\RequestHandler::class));

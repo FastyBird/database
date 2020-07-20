@@ -1,10 +1,10 @@
 <?php declare(strict_types = 1);
 
 /**
- * JsonApiMiddleware.php
+ * PagingMiddleware.php
  *
  * @license        More in license.md
- * @copyright      https://www.fastybird.com
+ * @copyright      https://fastybird.com
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  * @package        FastyBird:NodeDatabase!
  * @subpackage     Middleware
@@ -24,14 +24,14 @@ use Psr\Http\Server\RequestHandlerInterface;
 use Throwable;
 
 /**
- * Result set handling middleware for {JSON:API}
+ * Records paging handling middleware
  *
  * @package        FastyBird:NodeDatabase!
  * @subpackage     Middleware
  *
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  */
-class JsonApiMiddleware implements MiddlewareInterface
+class PagingMiddleware implements MiddlewareInterface
 {
 
 	/**

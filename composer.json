@@ -13,7 +13,7 @@
     "library"
   ],
 
-  "homepage" : "https://www.fastybird.com",
+  "homepage" : "https://fastybird.com",
 
   "license" : "Apache-2.0",
 
@@ -21,7 +21,7 @@
     {
       "name" : "FastyBird s.r.o.",
       "email" : "info@fastybird.com",
-      "homepage" : "https://www.fastybird.com/"
+      "homepage" : "https://fastybird.com/"
     },
     {
       "name" : "Adam Kadlec",
@@ -36,7 +36,7 @@
   "require" : {
     "php" : ">=7.3.0",
     "doctrine/orm" : "2.7.2",
-    "fastybird/node-web-server" : "^0.6",
+    "fastybird/node-web-server" : "^0.1",
     "ipub/doctrine-crud" : "^2.3",
     "ipub/doctrine-orm-query" : "^0.0.6",
     "nette/bootstrap" : "^3.0",

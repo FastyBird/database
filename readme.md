@@ -10,7 +10,7 @@
 
 ## What is FastyBird node database helpers library?
 
-This is a [Nette framework](https://nette.org) extension which is implementing basic [Doctrine](https://www.doctrine-project.org/) helpers for [FastyBird](https://www.fastybird.com) IoT microservices
+This is a [Nette framework](https://nette.org) extension which is implementing basic [Doctrine](https://www.doctrine-project.org/) helpers for [FastyBird](https://fastybird.com) IoT microservices
 
 ## Installation
 
@@ -25,4 +25,4 @@ $ composer require fastybird/node-database
 Learn how to use database services in [documentation](https://github.com/FastyBird/node-database/blob/master/docs/en/index.md).
 
 ***
-Homepage [http://www.fastybird.com](http://www.fastybird.com) and repository [https://github.com/FastyBird/node-database](https://github.com/FastyBird/node-database).
+Homepage [http://fastybird.com](http://fastybird.com) and repository [https://github.com/FastyBird/node-database](https://github.com/FastyBird/node-database).
