@@ -51,13 +51,13 @@ class RequestHandler
 	{
 		$em = $this->managerRegistry->getManager();
 
+		if ($em instanceof ORM\EntityManagerInterface && !$em->isOpen()) {
+			$this->managerRegistry->resetManager();
+
+			$em = $this->managerRegistry->getManager();
+		}
+
 		if ($em instanceof ORM\EntityManagerInterface) {
-			if (!$em->isOpen()) {
-				$this->managerRegistry->resetManager();
-
-				$em = $this->managerRegistry->getManager();
-			}
-
 			$connection = $em->getConnection();
 
 			if (!$connection->ping()) {
