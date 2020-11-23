@@ -1,35 +1,35 @@
 <?php declare(strict_types = 1);
 
 /**
- * NodeDatabaseExtension.php
+ * DatabaseExtension.php
  *
  * @license        More in license.md
  * @copyright      https://fastybird.com
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
- * @package        FastyBird:NodeDatabase!
+ * @package        FastyBird:Database!
  * @subpackage     DI
  * @since          0.1.0
  *
  * @date           27.05.20
  */
 
-namespace FastyBird\NodeDatabase\DI;
+namespace FastyBird\Database\DI;
 
-use FastyBird\NodeDatabase\Events;
-use FastyBird\NodeDatabase\Middleware;
-use FastyBird\NodeWebServer\Commands as NodeWebServerCommands;
+use FastyBird\Database\Events;
+use FastyBird\Database\Middleware;
+use FastyBird\WebServer\Commands as WebServerCommands;
 use Nette;
 use Nette\DI;
 
 /**
  * Database utils extension container
  *
- * @package        FastyBird:NodeDatabase!
+ * @package        FastyBird:Database!
  * @subpackage     DI
  *
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
  */
-class NodeDatabaseExtension extends DI\CompilerExtension
+class DatabaseExtension extends DI\CompilerExtension
 {
 
 	/**
@@ -55,9 +55,6 @@ class NodeDatabaseExtension extends DI\CompilerExtension
 
 		$builder->addDefinition($this->prefix('event.response'))
 			->setType(Events\ResponseHandler::class);
-
-		$builder->addDefinition($this->prefix('event.afterConsume'))
-			->setType(Events\AfterConsumeHandler::class);
 	}
 
 	/**
@@ -73,7 +70,7 @@ class NodeDatabaseExtension extends DI\CompilerExtension
 		 * SERVER EVENTS
 		 */
 
-		$serverCommandServiceName = $builder->getByType(NodeWebServerCommands\HttpServerCommand::class);
+		$serverCommandServiceName = $builder->getByType(WebServerCommands\HttpServerCommand::class);
 
 		if ($serverCommandServiceName !== null) {
 			/** @var DI\Definitions\ServiceDefinition $serverCommandService */
@@ -94,13 +91,13 @@ class NodeDatabaseExtension extends DI\CompilerExtension
 	 */
 	public static function register(
 		Nette\Configurator $config,
-		string $extensionName = 'nodeDatabase'
+		string $extensionName = 'fbDatabase'
 	): void {
 		$config->onCompile[] = function (
 			Nette\Configurator $config,
 			DI\Compiler $compiler
 		) use ($extensionName): void {
-			$compiler->addExtension($extensionName, new NodeDatabaseExtension());
+			$compiler->addExtension($extensionName, new DatabaseExtension());
 		};
 	}
 

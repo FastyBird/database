@@ -1,7 +1,7 @@
 {
-  "name" : "fastybird/node-database",
+  "name" : "fastybird/database",
   "type" : "library",
-  "description" : "FastyBird database utils for nodes",
+  "description" : "FastyBird database utils",
   "keywords" : [
     "fastybird",
     "fb",
@@ -35,15 +35,14 @@
 
   "require" : {
     "php" : ">=7.3.0",
-    "doctrine/orm" : "2.7.2",
-    "fastybird/node-web-server" : "@dev",
+    "fastybird/web-server" : "@dev",
     "ipub/doctrine-crud" : "^2.3",
     "ipub/doctrine-orm-query" : "^0.0.6",
     "nette/bootstrap" : "^3.0",
     "nette/di" : "^3.0",
     "nette/utils" : "^3.0",
-    "nettrine/cache" : "^0.1",
-    "nettrine/orm" : "^0.6",
+    "nettrine/cache" : "^0.2",
+    "nettrine/orm" : "^0.7",
     "ramsey/uuid" : "^3.5 || ^4.0",
     "ramsey/uuid-doctrine" : "^1.6"
   },
@@ -64,7 +63,7 @@
 
   "autoload" : {
     "psr-4" : {
-      "FastyBird\\NodeDatabase\\" : "src/"
+      "FastyBird\\Database\\" : "src/"
     }
   },
 

@@ -6,16 +6,16 @@
  * @license        More in license.md
  * @copyright      https://fastybird.com
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
- * @package        FastyBird:NodeDatabase!
+ * @package        FastyBird:Database!
  * @subpackage     Middleware
  * @since          0.1.0
  *
  * @date           25.05.20
  */
 
-namespace FastyBird\NodeDatabase\Middleware;
+namespace FastyBird\Database\Middleware;
 
-use FastyBird\NodeWebServer\Http as NodeWebServerHttp;
+use FastyBird\WebServer\Http as WebServerHttp;
 use IPub\DoctrineOrmQuery;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -26,7 +26,7 @@ use Throwable;
 /**
  * Records paging handling middleware
  *
- * @package        FastyBird:NodeDatabase!
+ * @package        FastyBird:Database!
  * @subpackage     Middleware
  *
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
@@ -46,10 +46,10 @@ class PagingMiddleware implements MiddlewareInterface
 	{
 		$response = $handler->handle($request);
 
-		if ($response instanceof NodeWebServerHttp\Response) {
+		if ($response instanceof WebServerHttp\Response) {
 			$entity = $response->getEntity();
 
-			if ($entity instanceof NodeWebServerHttp\ScalarEntity) {
+			if ($entity instanceof WebServerHttp\ScalarEntity) {
 				$data = $entity->getData();
 
 				if ($data instanceof DoctrineOrmQuery\ResultSet) {
@@ -70,12 +70,12 @@ class PagingMiddleware implements MiddlewareInterface
 						}
 
 						$response = $response
-							->withAttribute(NodeWebServerHttp\ResponseAttributes::ATTR_TOTAL_COUNT, $data->getTotalCount())
-							->withEntity(NodeWebServerHttp\ScalarEntity::from($data->toArray()));
+							->withAttribute(WebServerHttp\ResponseAttributes::ATTR_TOTAL_COUNT, $data->getTotalCount())
+							->withEntity(WebServerHttp\ScalarEntity::from($data->toArray()));
 
 					} else {
 						$response = $response
-							->withEntity(NodeWebServerHttp\ScalarEntity::from($data->toArray()));
+							->withEntity(WebServerHttp\ScalarEntity::from($data->toArray()));
 					}
 				}
 			}

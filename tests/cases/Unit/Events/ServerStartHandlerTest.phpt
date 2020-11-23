@@ -5,7 +5,7 @@ namespace Tests\Cases;
 use Doctrine\Common;
 use Doctrine\DBAL;
 use Doctrine\ORM;
-use FastyBird\NodeDatabase\Events;
+use FastyBird\Database\Events;
 use Mockery;
 use Ninjify\Nunjuck\TestCase\BaseMockeryTestCase;
 use Tester\Assert;
@@ -20,11 +20,23 @@ final class ServerStartHandlerTest extends BaseMockeryTestCase
 
 	public function testServerStart(): void
 	{
+		$databasePlatform = Mockery::mock(DBAL\Platforms\AbstractPlatform::class);
+		$databasePlatform
+			->shouldReceive('getDummySelectSQL')
+			->withNoArgs()
+			->andReturn(sprintf('SELECT %s', 1))
+			->times(1);
+
 		$connection = Mockery::mock(DBAL\Connection::class);
 		$connection
-			->shouldReceive('ping')
+			->shouldReceive('getDatabasePlatform')
 			->withNoArgs()
-			->andReturn(true)
+			->andReturn($databasePlatform)
+			->times(1)
+			->getMock()
+			->shouldReceive('executeQuery')
+			->withArgs([sprintf('SELECT %s', 1), [], []])
+			->andReturnNull()
 			->times(1);
 
 		$manager = Mockery::mock(ORM\EntityManagerInterface::class);

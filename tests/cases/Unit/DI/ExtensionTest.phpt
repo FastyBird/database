@@ -2,9 +2,9 @@
 
 namespace Tests\Cases;
 
-use FastyBird\NodeDatabase\DI;
-use FastyBird\NodeDatabase\Events;
-use FastyBird\NodeDatabase\Middleware;
+use FastyBird\Database\DI;
+use FastyBird\Database\Events;
+use FastyBird\Database\Middleware;
 use Nette;
 use Ninjify\Nunjuck\TestCase\BaseTestCase;
 use Tester\Assert;
@@ -23,7 +23,6 @@ final class ExtensionTest extends BaseTestCase
 
 		Assert::notNull($container->getByType(Middleware\PagingMiddleware::class));
 
-		Assert::notNull($container->getByType(Events\AfterConsumeHandler::class));
 		Assert::notNull($container->getByType(Events\RequestHandler::class));
 		Assert::notNull($container->getByType(Events\ResponseHandler::class));
 		Assert::notNull($container->getByType(Events\ServerStartHandler::class));
@@ -44,7 +43,7 @@ final class ExtensionTest extends BaseTestCase
 
 		$config->addConfig(__DIR__ . '/../../../common.neon');
 
-		DI\NodeDatabaseExtension::register($config);
+		DI\DatabaseExtension::register($config);
 
 		return $config->createContainer();
 	}

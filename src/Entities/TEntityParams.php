@@ -6,14 +6,14 @@
  * @license        More in license.md
  * @copyright      https://fastybird.com
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
- * @package        FastyBird:NodeDatabase!
+ * @package        FastyBird:Database!
  * @subpackage     Entities
  * @since          0.1.0
  *
  * @date           25.05.20
  */
 
-namespace FastyBird\NodeDatabase\Entities;
+namespace FastyBird\Database\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use IPub\DoctrineCrud\Mapping\Annotation as IPubDoctrine;
@@ -22,7 +22,7 @@ use Nette\Utils;
 /**
  * Entity params field trait
  *
- * @package        FastyBird:NodeDatabase!
+ * @package        FastyBird:Database!
  * @subpackage     Entities
  *
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>

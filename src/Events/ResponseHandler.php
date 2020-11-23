@@ -6,14 +6,14 @@
  * @license        More in license.md
  * @copyright      https://fastybird.com
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
- * @package        FastyBird:NodeDatabase!
+ * @package        FastyBird:Database!
  * @subpackage     Events
  * @since          0.1.0
  *
  * @date           15.04.20
  */
 
-namespace FastyBird\NodeDatabase\Events;
+namespace FastyBird\Database\Events;
 
 use Doctrine\Persistence;
 use Nette;
@@ -21,7 +21,7 @@ use Nette;
 /**
  * Before http request processed handler
  *
- * @package         FastyBird:NodeDatabase!
+ * @package         FastyBird:Database!
  * @subpackage      Events
  *
  * @author          Adam Kadlec <adam.kadlec@fastybird.com>

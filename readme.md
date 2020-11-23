@@ -1,28 +1,28 @@
 # FastyBird node database helpers library
 
-[![Build Status](https://img.shields.io/travis/FastyBird/node-database.svg?style=flat-square)](https://travis-ci.org/FastyBird/node-database)
-[![Code coverage](https://img.shields.io/coveralls/FastyBird/node-database.svg?style=flat-square)](https://coveralls.io/r/FastyBird/node-database)
-![PHP from Travis config](https://img.shields.io/travis/php-v/fastybird/node-database?style=flat-square)
-[![Licence](https://img.shields.io/packagist/l/FastyBird/node-database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/node-database)
-[![Downloads total](https://img.shields.io/packagist/dt/FastyBird/node-database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/node-database)
-[![Latest stable](https://img.shields.io/packagist/v/FastyBird/node-database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/node-database)
+[![Build Status](https://img.shields.io/travis/FastyBird/database.svg?style=flat-square)](https://travis-ci.org/FastyBird/database)
+[![Code coverage](https://img.shields.io/coveralls/FastyBird/database.svg?style=flat-square)](https://coveralls.io/r/FastyBird/database)
+![PHP from Travis config](https://img.shields.io/travis/php-v/fastybird/database?style=flat-square)
+[![Licence](https://img.shields.io/packagist/l/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
+[![Downloads total](https://img.shields.io/packagist/dt/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
+[![Latest stable](https://img.shields.io/packagist/v/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
-## What is FastyBird node database helpers library?
+## What is FastyBird database helpers library?
 
-This is a [Nette framework](https://nette.org) extension which is implementing basic [Doctrine](https://www.doctrine-project.org/) helpers for [FastyBird](https://fastybird.com) IoT microservices
+This is a [Nette framework](https://nette.org) extension which is implementing basic [Doctrine](https://www.doctrine-project.org/) helpers for
 
 ## Installation
 
-The best way to install **fastybird/node-database** is using [Composer](http://getcomposer.org/):
+The best way to install **fastybird/database** is using [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require fastybird/node-database
+$ composer require fastybird/database
 ```
 
 ## Documentation
 
-Learn how to use database services in [documentation](https://github.com/FastyBird/node-database/blob/master/docs/en/index.md).
+Learn how to use database services in [documentation](https://github.com/FastyBird/database/blob/master/docs/en/index.md).
 
 ***
-Homepage [http://fastybird.com](http://fastybird.com) and repository [https://github.com/FastyBird/node-database](https://github.com/FastyBird/node-database).
+Homepage [http://fastybird.com](http://fastybird.com) and repository [https://github.com/FastyBird/database](https://github.com/FastyBird/database).

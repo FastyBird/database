@@ -4,7 +4,7 @@ namespace Tests\Cases;
 
 use Doctrine\Common;
 use Doctrine\ORM;
-use FastyBird\NodeDatabase\Events;
+use FastyBird\Database\Events;
 use Mockery;
 use Ninjify\Nunjuck\TestCase\BaseMockeryTestCase;
 use Tester\Assert;
