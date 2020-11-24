@@ -10,7 +10,7 @@
 
 ## What is FastyBird database library?
 
-This is a [Nette framework](https://nette.org) extension which is implementing basic [Doctrine](https://www.doctrine-project.org/) helpers for
+This is a [Nette framework](https://nette.org) extension which is`` implementing basic [Doctrine](https://www.doctrine-project.org/) helpers for
 
 ## Installation
 
@@ -25,4 +25,4 @@ $ composer require fastybird/database
 Learn how to use database services in [documentation](https://github.com/FastyBird/database/blob/master/docs/en/index.md).
 
 ***
-Homepage [http://fastybird.com](http://fastybird.com) and repository [https://github.com/FastyBird/database](https://github.com/FastyBird/database).
+Homepage [https://www.fastybird.com](https://www.fastybird.com) and repository [https://github.com/FastyBird/database](https://github.com/FastyBird/database).
