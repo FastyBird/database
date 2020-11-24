@@ -6,6 +6,7 @@ use Doctrine\Common;
 use Doctrine\DBAL;
 use Doctrine\ORM;
 use FastyBird\Database\Events;
+use FastyBird\Database\Helpers;
 use Mockery;
 use Ninjify\Nunjuck\TestCase\BaseMockeryTestCase;
 use Tester\Assert;
@@ -44,7 +45,7 @@ final class RequestHandlerTest extends BaseMockeryTestCase
 			->shouldReceive('isOpen')
 			->withNoArgs()
 			->andReturn(true)
-			->times(1)
+			->times(2)
 			->getMock()
 			->shouldReceive('getConnection')
 			->withNoArgs()
@@ -60,9 +61,11 @@ final class RequestHandlerTest extends BaseMockeryTestCase
 			->shouldReceive('getManager')
 			->withNoArgs()
 			->andReturn($manager)
-			->times(1);
+			->times(2);
 
-		$subscriber = new Events\RequestHandler($managerRegistry);
+		$databaseHelper = new Helpers\Database($managerRegistry);
+
+		$subscriber = new Events\RequestHandler($databaseHelper);
 
 		$subscriber->__invoke();
 

@@ -15,9 +15,7 @@
 
 namespace FastyBird\Database\Events;
 
-use Doctrine\DBAL;
-use Doctrine\ORM;
-use Doctrine\Persistence;
+use FastyBird\Database\Helpers;
 use Nette;
 use Throwable;
 
@@ -34,13 +32,13 @@ class RequestHandler
 
 	use Nette\SmartObject;
 
-	/** @var Persistence\ManagerRegistry */
-	private $managerRegistry;
+	/** @var Helpers\Database */
+	private $database;
 
 	public function __construct(
-		Persistence\ManagerRegistry $managerRegistry
+		Helpers\Database $database
 	) {
-		$this->managerRegistry = $managerRegistry;
+		$this->database = $database;
 	}
 
 	/**
@@ -50,28 +48,12 @@ class RequestHandler
 	 */
 	public function __invoke(): void
 	{
-		$em = $this->managerRegistry->getManager();
-
-		if ($em instanceof ORM\EntityManagerInterface && !$em->isOpen()) {
-			$this->managerRegistry->resetManager();
-
-			$em = $this->managerRegistry->getManager();
+		if (!$this->database->ping()) {
+			$this->database->reconnect();
 		}
 
-		if ($em instanceof ORM\EntityManagerInterface) {
-			$connection = $em->getConnection();
-
-			try {
-				$connection->executeQuery($connection->getDatabasePlatform()->getDummySelectSQL(), [], []);
-
-			} catch (DBAL\Exception $e) {
-				$connection->close();
-				$connection->connect();
-			}
-
-			// Make sure we don't work with outdated entities
-			$em->clear();
-		}
+		// Make sure we don't work with outdated entities
+		$this->database->clear();
 	}
 
 }

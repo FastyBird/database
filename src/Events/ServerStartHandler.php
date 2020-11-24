@@ -15,8 +15,8 @@
 
 namespace FastyBird\Database\Events;
 
-use Doctrine\ORM;
-use Doctrine\Persistence;
+use FastyBird\Database\Exceptions;
+use FastyBird\Database\Helpers;
 use Nette;
 use Throwable;
 
@@ -33,13 +33,13 @@ class ServerStartHandler
 
 	use Nette\SmartObject;
 
-	/** @var Persistence\ManagerRegistry */
-	private $managerRegistry;
+	/** @var Helpers\Database */
+	private $database;
 
 	public function __construct(
-		Persistence\ManagerRegistry $managerRegistry
+		Helpers\Database $database
 	) {
-		$this->managerRegistry = $managerRegistry;
+		$this->database = $database;
 	}
 
 	/**
@@ -49,12 +49,15 @@ class ServerStartHandler
 	 */
 	public function __invoke(): void
 	{
-		$em = $this->managerRegistry->getManager();
+		// Check if ping to DB is possible...
+		if (!$this->database->ping()) {
+			// ...if not, try to reconnect
+			$this->database->reconnect();
 
-		if ($em instanceof ORM\EntityManagerInterface) {
-			$connection = $em->getConnection();
-
-			$connection->executeQuery($connection->getDatabasePlatform()->getDummySelectSQL(), [], []);
+			// ...and ping again
+			if (!$this->database->ping()) {
+				throw new Exceptions\InvalidStateException('Connection to database could not be established');
+			}
 		}
 	}
 

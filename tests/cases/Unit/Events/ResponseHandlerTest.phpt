@@ -5,6 +5,7 @@ namespace Tests\Cases;
 use Doctrine\Common;
 use Doctrine\ORM;
 use FastyBird\Database\Events;
+use FastyBird\Database\Helpers;
 use Mockery;
 use Ninjify\Nunjuck\TestCase\BaseMockeryTestCase;
 use Tester\Assert;
@@ -21,6 +22,11 @@ final class ResponseHandlerTest extends BaseMockeryTestCase
 	{
 		$manager = Mockery::mock(ORM\EntityManagerInterface::class);
 		$manager
+			->shouldReceive('isOpen')
+			->withNoArgs()
+			->andReturn(true)
+			->times(1)
+			->getMock()
 			->shouldReceive('clear')
 			->withNoArgs()
 			->times(1);
@@ -32,7 +38,9 @@ final class ResponseHandlerTest extends BaseMockeryTestCase
 			->andReturn($manager)
 			->times(1);
 
-		$subscriber = new Events\ResponseHandler($managerRegistry);
+		$databaseHelper = new Helpers\Database($managerRegistry);
+
+		$subscriber = new Events\ResponseHandler($databaseHelper);
 
 		$subscriber->__invoke();
 

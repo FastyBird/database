@@ -1,7 +1,7 @@
 {
   "name" : "fastybird/database",
   "type" : "library",
-  "description" : "FastyBird database utils",
+  "description" : "FastyBird basic entities & database helpers",
   "keywords" : [
     "fastybird",
     "fb",

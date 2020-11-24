@@ -6,6 +6,7 @@ use Doctrine\Common;
 use Doctrine\DBAL;
 use Doctrine\ORM;
 use FastyBird\Database\Events;
+use FastyBird\Database\Helpers;
 use Mockery;
 use Ninjify\Nunjuck\TestCase\BaseMockeryTestCase;
 use Tester\Assert;
@@ -41,6 +42,11 @@ final class ServerStartHandlerTest extends BaseMockeryTestCase
 
 		$manager = Mockery::mock(ORM\EntityManagerInterface::class);
 		$manager
+			->shouldReceive('isOpen')
+			->withNoArgs()
+			->andReturn(true)
+			->times(1)
+			->getMock()
 			->shouldReceive('getConnection')
 			->withNoArgs()
 			->andReturn($connection)
@@ -53,7 +59,9 @@ final class ServerStartHandlerTest extends BaseMockeryTestCase
 			->andReturn($manager)
 			->times(1);
 
-		$subscriber = new Events\ServerStartHandler($managerRegistry);
+		$databaseHelper = new Helpers\Database($managerRegistry);
+
+		$subscriber = new Events\ServerStartHandler($databaseHelper);
 
 		$subscriber->__invoke();
 

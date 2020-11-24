@@ -16,6 +16,7 @@
 namespace FastyBird\Database\DI;
 
 use FastyBird\Database\Events;
+use FastyBird\Database\Helpers;
 use FastyBird\Database\Middleware;
 use FastyBird\WebServer\Commands as WebServerCommands;
 use Nette;
@@ -55,6 +56,9 @@ class DatabaseExtension extends DI\CompilerExtension
 
 		$builder->addDefinition($this->prefix('event.response'))
 			->setType(Events\ResponseHandler::class);
+
+		$builder->addDefinition($this->prefix('helpers.database'))
+			->setType(Helpers\Database::class);
 	}
 
 	/**

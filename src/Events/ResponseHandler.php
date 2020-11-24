@@ -15,7 +15,7 @@
 
 namespace FastyBird\Database\Events;
 
-use Doctrine\Persistence;
+use FastyBird\Database\Helpers;
 use Nette;
 
 /**
@@ -31,13 +31,13 @@ class ResponseHandler
 
 	use Nette\SmartObject;
 
-	/** @var Persistence\ManagerRegistry */
-	private $managerRegistry;
+	/** @var Helpers\Database */
+	private $database;
 
 	public function __construct(
-		Persistence\ManagerRegistry $managerRegistry
+		Helpers\Database $database
 	) {
-		$this->managerRegistry = $managerRegistry;
+		$this->database = $database;
 	}
 
 	/**
@@ -45,11 +45,9 @@ class ResponseHandler
 	 */
 	public function __invoke(): void
 	{
-		$em = $this->managerRegistry->getManager();
-
 		// Clearing Doctrine's entity manager allows
 		// for more memory to be released by PHP
-		$em->clear();
+		$this->database->clear();
 
 		// Just in case PHP would choose not to run garbage collection,
 		// we run it manually at the end of each batch so that memory is
