@@ -1,6 +1,6 @@
 # FastyBird basic entities & database helpers library
 
-[![Build Status](https://img.shields.io/travis/FastyBird/database.svg?style=flat-square)](https://travis-ci.com/FastyBird/database)
+[![Build Status](https://img.shields.io/travis/FastyBird/com/database.svg?style=flat-square)](https://travis-ci.com/FastyBird/database)
 [![Code coverage](https://img.shields.io/coveralls/FastyBird/database.svg?style=flat-square)](https://coveralls.io/r/FastyBird/database)
 ![PHP](https://img.shields.io/packagist/php-v/fastybird/database?style=flat-square)
 [![Licence](https://img.shields.io/packagist/l/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
