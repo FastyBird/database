@@ -2,7 +2,7 @@
 
 [![Build Status](https://img.shields.io/travis/FastyBird/database.svg?style=flat-square)](https://travis-ci.com/FastyBird/database)
 [![Code coverage](https://img.shields.io/coveralls/FastyBird/database.svg?style=flat-square)](https://coveralls.io/r/FastyBird/database)
-![PHP from Travis config](https://img.shields.io/travis/php-v/fastybird/database?style=flat-square)
+![PHP](https://img.shields.io/packagist/php-v/fastybird/database?style=flat-square)
 [![Licence](https://img.shields.io/packagist/l/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
 [![Downloads total](https://img.shields.io/packagist/dt/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
 [![Latest stable](https://img.shields.io/packagist/v/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
