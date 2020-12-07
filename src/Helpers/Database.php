@@ -55,7 +55,8 @@ class Database
 
 		if ($connection !== null) {
 			try {
-				$connection->executeQuery($connection->getDatabasePlatform()->getDummySelectSQL(), [], []);
+				$connection->executeQuery($connection->getDatabasePlatform()
+					->getDummySelectSQL(), [], []);
 
 			} catch (DBAL\Exception $e) {
 				return false;
@@ -65,41 +66,6 @@ class Database
 		}
 
 		throw new Exceptions\InvalidStateException('Database connection not found');
-	}
-
-	/**
-	 * @return void
-	 *
-	 * @throws Throwable
-	 */
-	public function reconnect(): void
-	{
-		$connection = $this->getConnection();
-
-		if ($connection !== null) {
-			$connection->close();
-			$connection->connect();
-
-			return;
-		}
-
-		throw new Exceptions\InvalidStateException('Invalid database connection');
-	}
-
-	/**
-	 * @return void
-	 */
-	public function clear(): void
-	{
-		$em = $this->getEntityManager();
-
-		if ($em instanceof ORM\EntityManagerInterface) {
-			$em->clear();
-
-			return;
-		}
-
-		throw new Exceptions\InvalidStateException('Invalid entity manager');
 	}
 
 	/**
@@ -136,6 +102,41 @@ class Database
 		}
 
 		return null;
+	}
+
+	/**
+	 * @return void
+	 *
+	 * @throws Throwable
+	 */
+	public function reconnect(): void
+	{
+		$connection = $this->getConnection();
+
+		if ($connection !== null) {
+			$connection->close();
+			$connection->connect();
+
+			return;
+		}
+
+		throw new Exceptions\InvalidStateException('Invalid database connection');
+	}
+
+	/**
+	 * @return void
+	 */
+	public function clear(): void
+	{
+		$em = $this->getEntityManager();
+
+		if ($em instanceof ORM\EntityManagerInterface) {
+			$em->clear();
+
+			return;
+		}
+
+		throw new Exceptions\InvalidStateException('Invalid entity manager');
 	}
 
 }

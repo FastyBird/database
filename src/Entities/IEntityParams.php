@@ -41,7 +41,7 @@ interface IEntityParams
 	public function getParams(): Utils\ArrayHash;
 
 	/**
-	 * @param string $key
+	 * @param string     $key
 	 * @param mixed|null $value
 	 *
 	 * @return void
@@ -49,7 +49,7 @@ interface IEntityParams
 	public function setParam(string $key, $value = null): void;
 
 	/**
-	 * @param string $key
+	 * @param string     $key
 	 * @param mixed|null $default
 	 *
 	 * @return mixed|null

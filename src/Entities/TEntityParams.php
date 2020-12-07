@@ -39,6 +39,14 @@ trait TEntityParams
 	protected $params = [];
 
 	/**
+	 * @return Utils\ArrayHash
+	 */
+	public function getParams(): Utils\ArrayHash
+	{
+		return Utils\ArrayHash::from($this->params);
+	}
+
+	/**
 	 * @param mixed[] $params
 	 *
 	 * @return void
@@ -49,15 +57,7 @@ trait TEntityParams
 	}
 
 	/**
-	 * @return Utils\ArrayHash
-	 */
-	public function getParams(): Utils\ArrayHash
-	{
-		return Utils\ArrayHash::from($this->params);
-	}
-
-	/**
-	 * @param string $key
+	 * @param string     $key
 	 * @param mixed|null $value
 	 *
 	 * @return void
@@ -96,7 +96,7 @@ trait TEntityParams
 	}
 
 	/**
-	 * @param string $key
+	 * @param string     $key
 	 * @param mixed|null $default
 	 *
 	 * @return mixed|null

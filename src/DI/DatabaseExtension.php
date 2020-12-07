@@ -34,6 +34,24 @@ class DatabaseExtension extends DI\CompilerExtension
 {
 
 	/**
+	 * @param Nette\Configurator $config
+	 * @param string             $extensionName
+	 *
+	 * @return void
+	 */
+	public static function register(
+		Nette\Configurator $config,
+		string $extensionName = 'fbDatabase'
+	): void {
+		$config->onCompile[] = function (
+			Nette\Configurator $config,
+			DI\Compiler $compiler
+		) use ($extensionName): void {
+			$compiler->addExtension($extensionName, new DatabaseExtension());
+		};
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	public function loadConfiguration(): void
@@ -85,24 +103,6 @@ class DatabaseExtension extends DI\CompilerExtension
 				->addSetup('$onRequest[]', ['@' . $this->prefix('event.request')])
 				->addSetup('$onResponse[]', ['@' . $this->prefix('event.response')]);
 		}
-	}
-
-	/**
-	 * @param Nette\Configurator $config
-	 * @param string $extensionName
-	 *
-	 * @return void
-	 */
-	public static function register(
-		Nette\Configurator $config,
-		string $extensionName = 'fbDatabase'
-	): void {
-		$config->onCompile[] = function (
-			Nette\Configurator $config,
-			DI\Compiler $compiler
-		) use ($extensionName): void {
-			$compiler->addExtension($extensionName, new DatabaseExtension());
-		};
 	}
 
 }

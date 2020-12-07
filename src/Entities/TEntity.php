@@ -33,17 +33,17 @@ trait TEntity
 	/**
 	 * {@inheritDoc}
 	 */
-	public function getId(): Uuid\UuidInterface
+	public function getRawId(): Uuid\UuidInterface
 	{
-		return $this->id;
+		return $this->getId();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function getRawId(): Uuid\UuidInterface
+	public function getId(): Uuid\UuidInterface
 	{
-		return $this->getId();
+		return $this->id;
 	}
 
 	/**
