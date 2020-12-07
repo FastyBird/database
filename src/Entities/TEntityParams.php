@@ -15,6 +15,8 @@
 
 namespace FastyBird\Database\Entities;
 
+use Doctrine\ORM\Mapping as ORM;
+use IPub\DoctrineCrud\Mapping\Annotation as IPubDoctrine;
 use Nette\Utils;
 
 /**
