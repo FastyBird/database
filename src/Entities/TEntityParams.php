@@ -15,8 +15,6 @@
 
 namespace FastyBird\Database\Entities;
 
-use Doctrine\ORM\Mapping as ORM;
-use IPub\DoctrineCrud\Mapping\Annotation as IPubDoctrine;
 use Nette\Utils;
 
 /**
@@ -57,7 +55,7 @@ trait TEntityParams
 	}
 
 	/**
-	 * @param string     $key
+	 * @param string $key
 	 * @param mixed|null $value
 	 *
 	 * @return void
@@ -96,7 +94,7 @@ trait TEntityParams
 	}
 
 	/**
-	 * @param string     $key
+	 * @param string $key
 	 * @param mixed|null $default
 	 *
 	 * @return mixed|null
