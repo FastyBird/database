@@ -36,7 +36,7 @@ trait TEntityParams
 	 * @IPubDoctrine\Crud(is="writable")
 	 * @ORM\Column(type="json", name="params", nullable=true)
 	 */
-	protected $params = [];
+	protected array $params = [];
 
 	/**
 	 * @return Utils\ArrayHash

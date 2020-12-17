@@ -31,7 +31,7 @@ trait TEntity
 {
 
 	/**
-	 * {@inheritDoc}
+	 * @return Uuid\UuidInterface
 	 */
 	public function getRawId(): Uuid\UuidInterface
 	{
@@ -39,7 +39,7 @@ trait TEntity
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @return Uuid\UuidInterface
 	 */
 	public function getId(): Uuid\UuidInterface
 	{
@@ -47,7 +47,7 @@ trait TEntity
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @return string
 	 */
 	public function getPlainId(): string
 	{

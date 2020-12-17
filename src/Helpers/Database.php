@@ -36,7 +36,7 @@ class Database
 	use Nette\SmartObject;
 
 	/** @var Persistence\ManagerRegistry */
-	private $managerRegistry;
+	private Persistence\ManagerRegistry $managerRegistry;
 
 	public function __construct(
 		Persistence\ManagerRegistry $managerRegistry

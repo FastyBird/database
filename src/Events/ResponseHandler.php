@@ -32,7 +32,7 @@ class ResponseHandler
 	use Nette\SmartObject;
 
 	/** @var Helpers\Database */
-	private $database;
+	private Helpers\Database $database;
 
 	public function __construct(
 		Helpers\Database $database
