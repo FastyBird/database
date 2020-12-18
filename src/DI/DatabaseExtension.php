@@ -99,7 +99,7 @@ class DatabaseExtension extends DI\CompilerExtension
 			$serverCommandService = $builder->getDefinition($serverCommandServiceName);
 
 			$serverCommandService
-				->addSetup('$onServerAfterStart[]', ['@' . $this->prefix('event.serverAfterStart')])
+				->addSetup('$onAfterServerStart[]', ['@' . $this->prefix('event.serverAfterStart')])
 				->addSetup('$onRequest[]', ['@' . $this->prefix('event.request')])
 				->addSetup('$onResponse[]', ['@' . $this->prefix('event.response')]);
 		}
