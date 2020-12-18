@@ -16,10 +16,10 @@ require_once __DIR__ . '/../../../bootstrap.php';
 /**
  * @testCase
  */
-final class ServerStartHandlerTest extends BaseMockeryTestCase
+final class ServerAfterStartHandlerTest extends BaseMockeryTestCase
 {
 
-	public function testServerStart(): void
+	public function testServerAfterStart(): void
 	{
 		$databasePlatform = Mockery::mock(DBAL\Platforms\AbstractPlatform::class);
 		$databasePlatform
@@ -61,7 +61,7 @@ final class ServerStartHandlerTest extends BaseMockeryTestCase
 
 		$databaseHelper = new Helpers\Database($managerRegistry);
 
-		$subscriber = new Events\ServerStartHandler($databaseHelper);
+		$subscriber = new Events\ServerAfterStartHandler($databaseHelper);
 
 		$subscriber->__invoke();
 
@@ -70,5 +70,5 @@ final class ServerStartHandlerTest extends BaseMockeryTestCase
 
 }
 
-$test_case = new ServerStartHandlerTest();
+$test_case = new ServerAfterStartHandlerTest();
 $test_case->run();

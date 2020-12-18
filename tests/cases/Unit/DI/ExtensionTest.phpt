@@ -26,7 +26,7 @@ final class ExtensionTest extends BaseTestCase
 
 		Assert::notNull($container->getByType(Events\RequestHandler::class));
 		Assert::notNull($container->getByType(Events\ResponseHandler::class));
-		Assert::notNull($container->getByType(Events\ServerStartHandler::class));
+		Assert::notNull($container->getByType(Events\ServerAfterStartHandler::class));
 
 		Assert::notNull($container->getByType(Helpers\Database::class));
 	}

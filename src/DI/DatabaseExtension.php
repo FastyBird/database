@@ -66,8 +66,8 @@ class DatabaseExtension extends DI\CompilerExtension
 				],
 			]);
 
-		$builder->addDefinition($this->prefix('event.serverStart'))
-			->setType(Events\ServerStartHandler::class);
+		$builder->addDefinition($this->prefix('event.serverAfterStart'))
+			->setType(Events\ServerAfterStartHandler::class);
 
 		$builder->addDefinition($this->prefix('event.request'))
 			->setType(Events\RequestHandler::class);
@@ -99,7 +99,7 @@ class DatabaseExtension extends DI\CompilerExtension
 			$serverCommandService = $builder->getDefinition($serverCommandServiceName);
 
 			$serverCommandService
-				->addSetup('$onServerStart[]', ['@' . $this->prefix('event.serverStart')])
+				->addSetup('$onServerAfterStart[]', ['@' . $this->prefix('event.serverAfterStart')])
 				->addSetup('$onRequest[]', ['@' . $this->prefix('event.request')])
 				->addSetup('$onResponse[]', ['@' . $this->prefix('event.response')]);
 		}
