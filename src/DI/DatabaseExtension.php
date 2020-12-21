@@ -68,6 +68,9 @@ class DatabaseExtension extends DI\CompilerExtension
 		$builder->addDefinition($this->prefix('subscribers.databaseCheck'))
 			->setType(Subscribers\DatabaseCheckSubscriber::class);
 
+		$builder->addDefinition($this->prefix('subscribers.exchange'))
+			->setType(Subscribers\ExchangeSubscriber::class);
+
 		$builder->addDefinition($this->prefix('helpers.database'))
 			->setType(Helpers\Database::class);
 	}

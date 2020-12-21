@@ -36,6 +36,7 @@
   "require" : {
     "php": ">=7.4.0",
     "fastybird/application-events": "@dev",
+    "fastybird/application-exchange": "@dev",
     "fastybird/web-server": "@dev",
     "ipub/doctrine-crud": "^2.3",
     "ipub/doctrine-orm-query": "^0.0.6",
