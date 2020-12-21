@@ -5,8 +5,8 @@ namespace Tests\Cases;
 use Doctrine\Common;
 use Doctrine\DBAL;
 use Doctrine\ORM;
-use FastyBird\Database\Events;
 use FastyBird\Database\Helpers;
+use FastyBird\Database\Subscribers;
 use Mockery;
 use Ninjify\Nunjuck\TestCase\BaseMockeryTestCase;
 use Tester\Assert;
@@ -16,10 +16,10 @@ require_once __DIR__ . '/../../../bootstrap.php';
 /**
  * @testCase
  */
-final class ServerAfterStartHandlerTest extends BaseMockeryTestCase
+final class RequestHandlerTest extends BaseMockeryTestCase
 {
 
-	public function testServerAfterStart(): void
+	public function testOnRequest(): void
 	{
 		$databasePlatform = Mockery::mock(DBAL\Platforms\AbstractPlatform::class);
 		$databasePlatform
@@ -45,11 +45,15 @@ final class ServerAfterStartHandlerTest extends BaseMockeryTestCase
 			->shouldReceive('isOpen')
 			->withNoArgs()
 			->andReturn(true)
-			->times(1)
+			->times(2)
 			->getMock()
 			->shouldReceive('getConnection')
 			->withNoArgs()
 			->andReturn($connection)
+			->times(1)
+			->getMock()
+			->shouldReceive('clear')
+			->withNoArgs()
 			->times(1);
 
 		$managerRegistry = Mockery::mock(Common\Persistence\ManagerRegistry::class);
@@ -57,18 +61,18 @@ final class ServerAfterStartHandlerTest extends BaseMockeryTestCase
 			->shouldReceive('getManager')
 			->withNoArgs()
 			->andReturn($manager)
-			->times(1);
+			->times(2);
 
 		$databaseHelper = new Helpers\Database($managerRegistry);
 
-		$subscriber = new Events\ServerAfterStartHandler($databaseHelper);
+		$subscriber = new Subscribers\DatabaseCheckSubscriber($databaseHelper);
 
-		$subscriber->__invoke();
+		$subscriber->request();
 
 		Assert::true(true);
 	}
 
 }
 
-$test_case = new ServerAfterStartHandlerTest();
+$test_case = new RequestHandlerTest();
 $test_case->run();

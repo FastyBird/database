@@ -3,9 +3,9 @@
 namespace Tests\Cases;
 
 use FastyBird\Database\DI;
-use FastyBird\Database\Events;
 use FastyBird\Database\Helpers;
 use FastyBird\Database\Middleware;
+use FastyBird\Database\Subscribers;
 use Nette;
 use Ninjify\Nunjuck\TestCase\BaseTestCase;
 use Tester\Assert;
@@ -24,9 +24,7 @@ final class ExtensionTest extends BaseTestCase
 
 		Assert::notNull($container->getByType(Middleware\PagingMiddleware::class));
 
-		Assert::notNull($container->getByType(Events\RequestHandler::class));
-		Assert::notNull($container->getByType(Events\ResponseHandler::class));
-		Assert::notNull($container->getByType(Events\ServerAfterStartHandler::class));
+		Assert::notNull($container->getByType(Subscribers\DatabaseCheckSubscriber::class));
 
 		Assert::notNull($container->getByType(Helpers\Database::class));
 	}

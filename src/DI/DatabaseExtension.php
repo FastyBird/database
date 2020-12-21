@@ -15,10 +15,9 @@
 
 namespace FastyBird\Database\DI;
 
-use FastyBird\Database\Events;
 use FastyBird\Database\Helpers;
 use FastyBird\Database\Middleware;
-use FastyBird\WebServer\Commands as WebServerCommands;
+use FastyBird\Database\Subscribers;
 use Nette;
 use Nette\DI;
 
@@ -66,43 +65,11 @@ class DatabaseExtension extends DI\CompilerExtension
 				],
 			]);
 
-		$builder->addDefinition($this->prefix('event.serverAfterStart'))
-			->setType(Events\ServerAfterStartHandler::class);
-
-		$builder->addDefinition($this->prefix('event.request'))
-			->setType(Events\RequestHandler::class);
-
-		$builder->addDefinition($this->prefix('event.response'))
-			->setType(Events\ResponseHandler::class);
+		$builder->addDefinition($this->prefix('subscribers.databaseCheck'))
+			->setType(Subscribers\DatabaseCheckSubscriber::class);
 
 		$builder->addDefinition($this->prefix('helpers.database'))
 			->setType(Helpers\Database::class);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function beforeCompile(): void
-	{
-		parent::beforeCompile();
-
-		$builder = $this->getContainerBuilder();
-
-		/**
-		 * SERVER EVENTS
-		 */
-
-		$serverCommandServiceName = $builder->getByType(WebServerCommands\HttpServerCommand::class);
-
-		if ($serverCommandServiceName !== null) {
-			/** @var DI\Definitions\ServiceDefinition $serverCommandService */
-			$serverCommandService = $builder->getDefinition($serverCommandServiceName);
-
-			$serverCommandService
-				->addSetup('$onAfterServerStart[]', ['@' . $this->prefix('event.serverAfterStart')])
-				->addSetup('$onRequest[]', ['@' . $this->prefix('event.request')])
-				->addSetup('$onResponse[]', ['@' . $this->prefix('event.response')]);
-		}
 	}
 
 }

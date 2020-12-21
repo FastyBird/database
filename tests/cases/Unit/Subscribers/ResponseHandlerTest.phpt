@@ -4,8 +4,8 @@ namespace Tests\Cases;
 
 use Doctrine\Common;
 use Doctrine\ORM;
-use FastyBird\Database\Events;
 use FastyBird\Database\Helpers;
+use FastyBird\Database\Subscribers;
 use Mockery;
 use Ninjify\Nunjuck\TestCase\BaseMockeryTestCase;
 use Tester\Assert;
@@ -40,9 +40,9 @@ final class ResponseHandlerTest extends BaseMockeryTestCase
 
 		$databaseHelper = new Helpers\Database($managerRegistry);
 
-		$subscriber = new Events\ResponseHandler($databaseHelper);
+		$subscriber = new Subscribers\DatabaseCheckSubscriber($databaseHelper);
 
-		$subscriber->__invoke();
+		$subscriber->response();
 
 		Assert::true(true);
 	}
