@@ -31,19 +31,19 @@ trait TEntityParams
 {
 
 	/**
-	 * @var mixed[]
+	 * @var mixed[]|null
 	 *
 	 * @IPubDoctrine\Crud(is="writable")
 	 * @ORM\Column(type="json", name="params", nullable=true)
 	 */
-	protected array $params = [];
+	protected ?array $params = null;
 
 	/**
 	 * @return Utils\ArrayHash
 	 */
 	public function getParams(): Utils\ArrayHash
 	{
-		return Utils\ArrayHash::from($this->params);
+		return $this->params !== null ? Utils\ArrayHash::from($this->params) : Utils\ArrayHash::from([]);
 	}
 
 	/**
@@ -53,7 +53,7 @@ trait TEntityParams
 	 */
 	public function setParams(array $params): void
 	{
-		$this->params = array_merge($this->params, $params);
+		$this->params = $this->params !== null ? array_merge($this->params, $params) : $params;
 	}
 
 	/**
@@ -64,6 +64,10 @@ trait TEntityParams
 	 */
 	public function setParam(string $key, $value = null): void
 	{
+		if ($this->params === null) {
+			$this->params = [];
+		}
+
 		$parts = explode('.', $key);
 
 		if (count($parts) > 1) {
@@ -103,6 +107,10 @@ trait TEntityParams
 	 */
 	public function getParam(string $key, $default = null)
 	{
+		if ($this->params === null) {
+			return $default;
+		}
+
 		$parts = explode('.', $key);
 
 		if (array_key_exists($parts[0], $this->params)) {
