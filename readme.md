@@ -1,11 +1,11 @@
 # FastyBird basic entities & database helpers library
 
-[![Build Status](https://img.shields.io/travis/com/FastyBird/database.svg?style=flat-square)](https://travis-ci.com/FastyBird/database)
-[![Code coverage](https://img.shields.io/coveralls/FastyBird/database.svg?style=flat-square)](https://coveralls.io/r/FastyBird/database)
-![PHP](https://img.shields.io/packagist/php-v/fastybird/database?style=flat-square)
-[![Licence](https://img.shields.io/packagist/l/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
-[![Downloads total](https://img.shields.io/packagist/dt/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
-[![Latest stable](https://img.shields.io/packagist/v/FastyBird/database.svg?style=flat-square)](https://packagist.org/packages/FastyBird/database)
+[![Build Status](https://badgen.net/github/checks/FastyBird/database/master?cache=300&style=flast-square)](https://travis-ci.com/FastyBird/database)
+[![Code coverage](https://badgen.net/coveralls/c/github/FastyBird/database?cache=300&style=flast-square)](https://coveralls.io/r/FastyBird/database)
+![PHP](https://badgen.net/packagist/php/FastyBird/database?cache=300&style=flast-square)
+[![Licence](https://badgen.net/packagist/license/FastyBird/database?cache=300&style=flast-square)](https://packagist.org/packages/FastyBird/database)
+[![Downloads total](https://badgen.net/packagist/dt/FastyBird/database?cache=300&style=flast-square)](https://packagist.org/packages/FastyBird/database)
+[![Latest stable](https://badgen.net/packagist/v/FastyBird/database/latest?cache=300&style=flast-square)](https://packagist.org/packages/FastyBird/database)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
 ## What is FastyBird database library?
