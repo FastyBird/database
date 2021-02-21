@@ -1,6 +1,6 @@
 # FastyBird basic entities & database helpers library
 
-[![Build Status](https://badgen.net/github/checks/FastyBird/database/master?cache=300&style=flast-square)](https://travis-ci.com/FastyBird/database)
+[![Build Status](https://badgen.net/github/checks/FastyBird/database/master?cache=300&style=flast-square)](https://github.com/FastyBird/database/actions)
 [![Code coverage](https://badgen.net/coveralls/c/github/FastyBird/database?cache=300&style=flast-square)](https://coveralls.io/r/FastyBird/database)
 ![PHP](https://badgen.net/packagist/php/FastyBird/database?cache=300&style=flast-square)
 [![Licence](https://badgen.net/packagist/license/FastyBird/database?cache=300&style=flast-square)](https://packagist.org/packages/FastyBird/database)
