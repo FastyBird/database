@@ -2,8 +2,8 @@
 
 namespace Tests\Cases;
 
-use Doctrine\Common;
 use Doctrine\ORM;
+use Doctrine\Persistence;
 use FastyBird\Database\Helpers;
 use FastyBird\Database\Subscribers;
 use Mockery;
@@ -31,7 +31,7 @@ final class ResponseHandlerTest extends BaseMockeryTestCase
 			->withNoArgs()
 			->times(1);
 
-		$managerRegistry = Mockery::mock(Common\Persistence\ManagerRegistry::class);
+		$managerRegistry = Mockery::mock(Persistence\ManagerRegistry::class);
 		$managerRegistry
 			->shouldReceive('getManager')
 			->withNoArgs()
