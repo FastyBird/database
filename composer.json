@@ -44,14 +44,14 @@
     "nette/utils": "^3.2",
     "nettrine/cache": "^0.3",
     "nettrine/orm": "^0.8",
-    "ramsey/uuid": "^3.5 || ^4.1",
+    "ramsey/uuid": "^4.1",
     "ramsey/uuid-doctrine": "^1.6"
   },
 
   "require-dev" : {
     "mockery/mockery" : "^1.4",
     "ninjify/nunjuck" : "^0.3",
-    "ninjify/qa" : "^0.10",
+    "ninjify/qa" : "^0.12",
     "pds/skeleton" : "~1.0",
     "phpstan/extension-installer" : "^1.1",
     "phpstan/phpstan" : "^0.12",
