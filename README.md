@@ -1,4 +1,4 @@
-# FastyBird basic entities & database helpers library
+# FastyBird database helpers library
 
 [![Build Status](https://badgen.net/github/checks/FastyBird/database/master?cache=300&style=flast-square)](https://github.com/FastyBird/database/actions)
 [![Code coverage](https://badgen.net/coveralls/c/github/FastyBird/database?cache=300&style=flast-square)](https://coveralls.io/r/FastyBird/database)
@@ -10,7 +10,12 @@
 
 ## What is FastyBird database library?
 
-This is a [Nette framework](https://nette.org) extension which is implementing basic [Doctrine](https://www.doctrine-project.org/) helpers for [FastyBird](https://www.fastybird.com) IoT services
+This is a [Nette framework](https://nette.org) extension which is implementing basic [Doctrine2](https://www.doctrine-project.org/) helpers.
+
+### Features:
+
+- [PSR-7](http://www.php-fig.org/psr/psr-7/) middleware for transforming query result set to paginated result
+- Event listeners for watching opened database connection
 
 ## Installation
 

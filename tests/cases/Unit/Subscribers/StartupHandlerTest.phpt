@@ -61,7 +61,7 @@ final class StartupHandlerTest extends BaseMockeryTestCase
 
 		$databaseHelper = new Helpers\Database($managerRegistry);
 
-		$subscriber = new Subscribers\DatabaseCheckSubscriber($databaseHelper);
+		$subscriber = new Subscribers\WebServerSubscriber($databaseHelper);
 
 		$subscriber->check();
 

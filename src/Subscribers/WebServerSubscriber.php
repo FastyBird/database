@@ -15,9 +15,9 @@
 
 namespace FastyBird\Database\Subscribers;
 
-use FastyBird\ApplicationEvents\Events as ApplicationEventsEvents;
 use FastyBird\Database\Exceptions;
 use FastyBird\Database\Helpers;
+use FastyBird\WebServer\Events as WebServerEventsEvents;
 use Symfony\Component\EventDispatcher;
 
 /**
@@ -28,7 +28,7 @@ use Symfony\Component\EventDispatcher;
  *
  * @author          Adam Kadlec <adam.kadlec@fastybird.com>
  */
-class DatabaseCheckSubscriber implements EventDispatcher\EventSubscriberInterface
+class WebServerSubscriber implements EventDispatcher\EventSubscriberInterface
 {
 
 	/** @var Helpers\Database */
@@ -40,9 +40,9 @@ class DatabaseCheckSubscriber implements EventDispatcher\EventSubscriberInterfac
 	public static function getSubscribedEvents(): array
 	{
 		return [
-			ApplicationEventsEvents\StartupEvent::class  => 'check',
-			ApplicationEventsEvents\RequestEvent::class  => 'request',
-			ApplicationEventsEvents\ResponseEvent::class => 'response',
+			WebServerEventsEvents\StartupEvent::class  => 'check',
+			WebServerEventsEvents\RequestEvent::class  => 'request',
+			WebServerEventsEvents\ResponseEvent::class => 'response',
 		];
 	}
 

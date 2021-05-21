@@ -24,7 +24,7 @@ final class ExtensionTest extends BaseTestCase
 
 		Assert::notNull($container->getByType(Middleware\PagingMiddleware::class));
 
-		Assert::notNull($container->getByType(Subscribers\DatabaseCheckSubscriber::class));
+		Assert::notNull($container->getByType(Subscribers\WebServerSubscriber::class));
 		Assert::notNull($container->getByType(Subscribers\ExchangeSubscriber::class));
 
 		Assert::notNull($container->getByType(Helpers\Database::class));

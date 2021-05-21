@@ -1,7 +1,7 @@
 {
   "name" : "fastybird/database",
   "type" : "library",
-  "description" : "FastyBird basic entities & database helpers",
+  "description" : "FastyBird database helpers",
   "keywords" : [
     "fastybird",
     "fb",
@@ -35,21 +35,18 @@
 
   "require" : {
     "php": ">=7.4.0",
-    "fastybird/application-events": "^0.1",
+    "doctrine/orm": "^2.6",
     "fastybird/application-exchange": "^0.1",
     "fastybird/web-server": "^0.1",
-    "ipub/doctrine-crud": "^3.0",
     "ipub/doctrine-orm-query": "^0.1",
     "nette/di": "^3.0",
-    "nette/utils": "^3.2",
-    "nettrine/cache": "^0.3",
-    "nettrine/orm": "^0.8",
-    "ramsey/uuid": "^4.1",
-    "ramsey/uuid-doctrine": "^1.6"
+    "nette/utils": "^3.2"
   },
 
   "require-dev" : {
     "mockery/mockery" : "^1.4",
+    "nettrine/cache": "^0.3",
+    "nettrine/orm": "^0.8",
     "ninjify/nunjuck" : "^0.3",
     "ninjify/qa" : "^0.12",
     "pds/skeleton" : "~1.0",
