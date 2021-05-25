@@ -27,7 +27,7 @@ $ composer require fastybird/database
 
 ## Documentation
 
-Learn how to use database services in [documentation](https://github.com/FastyBird/database/blob/master/docs/en/index.md).
+Learn how to use database services in [documentation](https://github.com/FastyBird/database/blob/master/.docs/en/index.md).
 
 ***
 Homepage [https://www.fastybird.com](https://www.fastybird.com) and repository [https://github.com/FastyBird/database](https://github.com/FastyBird/database).
