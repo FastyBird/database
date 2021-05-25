@@ -12,7 +12,7 @@ The best way to install **fastybird/database** is using [Composer](http://getcom
 composer require fastybird/database
 ```
 
-After that you have to register extension in *config.neon*.
+After that, you have to register extension in *config.neon*.
 
 ```neon
 extensions:
